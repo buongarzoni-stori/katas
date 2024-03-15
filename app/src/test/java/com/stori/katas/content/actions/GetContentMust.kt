@@ -37,8 +37,22 @@ class GetContentMust {
         thenContentMustExists()
     }
 
+    @Test
+    fun `not retrieve explicit content for minor users`() {
+        givenAMinorUser()
+        givenAnExplicitContent()
+
+        whenGetContent()
+
+        thenContentMustNotExists()
+    }
+
     private fun givenAnAdultUser() {
          user = userRandom(age = Age(18.toUShort()))
+    }
+
+    private fun givenAMinorUser() {
+        user = userRandom(age = Age(17.toUShort()))
     }
 
     private fun givenAnExplicitContent() {
@@ -52,6 +66,10 @@ class GetContentMust {
 
     private fun thenContentMustExists() {
         Assert.assertNotNull(content)
+    }
+
+    private fun thenContentMustNotExists() {
+        Assert.assertNull(content)
     }
 }
 
