@@ -9,6 +9,6 @@ class GetContent(
     private val contents: Contents
 ) {
     fun execute(user: User, contentId: Id): Content? {
-        return null
+        return contents.get(contentId)
     }
 }
