@@ -9,6 +9,12 @@ class GetContent(
     private val contents: Contents
 ) {
     fun execute(user: User, contentId: Id): Content? {
-        return contents.get(contentId)
+        val content = contents.get(contentId) ?: return null
+        if (user.age.isMinor()) {
+            return if (content.isExplicit) null else content
+        }
+        return content
     }
+
+    private fun User.canWatchContent(content: Content) = age.isMinor() && content.isExplicit.not()
 }
