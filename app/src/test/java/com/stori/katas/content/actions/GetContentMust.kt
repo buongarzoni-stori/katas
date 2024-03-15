@@ -5,8 +5,9 @@ import com.stori.katas.content.model.domain.Content
 import com.stori.katas.content.model.domain.Contents
 import com.stori.katas.content.model.domain.contentRandom
 import com.stori.katas.shared.common.model.domain.Id
-import com.stori.katas.shared.user.model.domain.Age
 import com.stori.katas.shared.user.model.domain.User
+import com.stori.katas.shared.user.model.domain.ageAdult
+import com.stori.katas.shared.user.model.domain.ageMinor
 import com.stori.katas.shared.user.model.domain.idRandom
 import com.stori.katas.shared.user.model.domain.userRandom
 import org.junit.Assert
@@ -48,11 +49,11 @@ class GetContentMust {
     }
 
     private fun givenAnAdultUser() {
-         user = userRandom(age = Age(18.toUShort()))
+         user = userRandom(age = ageAdult())
     }
 
     private fun givenAMinorUser() {
-        user = userRandom(age = Age(17.toUShort()))
+        user = userRandom(age = ageMinor())
     }
 
     private fun givenAnExplicitContent() {
