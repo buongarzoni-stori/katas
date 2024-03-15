@@ -5,5 +5,5 @@ import com.stori.katas.shared.common.model.domain.Id
 class User(
     id: Id,
     name: Name,
-    age: Age,
+    val age: Age,
 )
