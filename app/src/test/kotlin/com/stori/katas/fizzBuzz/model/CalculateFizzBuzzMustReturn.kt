@@ -12,5 +12,12 @@ class CalculateFizzBuzzMustReturn {
         "2" isEqualTo result
     }
 
+    @Test
+    fun `the FizzBuzz case`() = runTest {
+        val result = CalculateFizzBuzz().execute(15)
+
+        "FizzBuzz" isEqualTo result
+    }
+
     private infix fun Any.isEqualTo(other: Any) = assertEquals(this, other)
 }
