@@ -8,6 +8,10 @@ class CalculateFizzBuzz(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) {
     suspend fun execute(int: Int) = withContext(dispatcher) {
-        int.toString()
+        when {
+            int % 15 == 0 -> "FizzBuzz"
+            int % 3 == 0 -> "Fizz"
+            else -> int.toString()
+        }
     }
 }
