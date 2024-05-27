@@ -8,6 +8,11 @@ class CalculateFizzBuzz(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) {
     suspend fun execute(int: Int) = withContext(dispatcher) {
-        int.toString()
+        when {
+            isDivisibleBy(int, 3) -> "Fizz"
+            else -> int.toString()
+        }
     }
+
+    private fun isDivisibleBy(intA: Int, intB: Int): Boolean = intA.mod(intB) == 0
 }
