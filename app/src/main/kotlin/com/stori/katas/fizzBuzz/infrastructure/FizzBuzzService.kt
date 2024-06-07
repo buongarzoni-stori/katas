@@ -15,7 +15,7 @@ class FizzBuzzService {
         "FizzFizzBuzzBuzz",
     )
 
-    suspend fun getCalculation(int: Int) = withContext(Dispatchers.IO) {
+    suspend fun getCalculation(int: Int): String = withContext(Dispatchers.IO) {
         (results + int.toString()).random()
     }
 }
