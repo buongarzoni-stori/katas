@@ -13,7 +13,7 @@ object Apptimize {
 
 
     private fun fetchToggles() {
-        toggles.add("toggle1")
+        toggles.add("fizzbuzz_service_call_enabled")
         toggles.add("toggle2")
         toggles.add("toggle3")
     }
