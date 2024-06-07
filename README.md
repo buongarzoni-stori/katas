@@ -41,7 +41,16 @@ For exemple :
 - 53 should return FizzBuzz (contain 5 and 3)
 - 35 should return FizzBuzzBuzz (contain 3 and 5 and it divided by 5)
 
-## Stage 3 - Extra
+## Stage 3 - Service, Events and Toggles :D
+
+We now need to switch our logic from our mobile application to a backend, this behaviour is going
+to be controlled by a toggle called "fizzbuzz_service_call_enabled".
+
+We also need to send the event "fizz_buzz_calculation" with the result to Amplitude and Braze.
+
+For Braze we need the properties "number", "result", "origin" (mobile, server)
+
+## Stage 4 - Extra
 Create a Distance value object, like Duration.
 
 # Links
