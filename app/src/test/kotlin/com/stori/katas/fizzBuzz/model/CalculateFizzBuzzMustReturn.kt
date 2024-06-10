@@ -14,6 +14,7 @@ import org.junit.jupiter.api.BeforeEach
 class CalculateFizzBuzzMustReturn {
     private val toggle: Toggle = mockk()
     private val repository: FizzBuzzRepository = mockk()
+    private val eventTracker: EventTracker = mockk()
     private val useCase = CalculateFizzBuzz(
         toggle = toggle,
         repository = repository,
@@ -60,6 +61,23 @@ class CalculateFizzBuzzMustReturn {
 
         result isEqualTo expected
         coVerify { repository.calculate(int) }
+    }
+
+    @Test
+    fun `when a user calculate FizzBuzz we must send an amplitude event for that`() = runTest {
+        val int = 2
+        val expected = "Pepe"
+        val properties = mapOf(
+            "number" to int.toString(),
+            "result" to "expected",
+            "origin" to "server"
+        )
+
+        coEvery { toggle.isFeatureFlagOn("fizzbuzz_service_call_enabled") } returns true
+        coEvery { repository.calculate(int) } returns expected
+        useCase.execute(int)
+
+        verify { eventTracker.send("fizz_buzz_calculation", properties) }
     }
 
     private infix fun Any.isEqualTo(other: Any) = assertEquals(this, other)
