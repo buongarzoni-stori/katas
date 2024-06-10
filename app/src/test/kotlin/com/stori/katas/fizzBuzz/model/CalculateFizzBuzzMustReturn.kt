@@ -18,11 +18,13 @@ class CalculateFizzBuzzMustReturn {
     private val useCase = CalculateFizzBuzz(
         toggle = toggle,
         repository = repository,
+        eventTracker = eventTracker,
     )
 
     @Before
     fun setup() {
         coEvery { toggle.isFeatureFlagOn("fizzbuzz_service_call_enabled") } returns false
+        every { eventTracker.send(any(), any()) } returns Unit
     }
 
     @Test
@@ -69,7 +71,7 @@ class CalculateFizzBuzzMustReturn {
         val expected = "Pepe"
         val properties = mapOf(
             "number" to int.toString(),
-            "result" to "expected",
+            "result" to expected,
             "origin" to "server"
         )
 
