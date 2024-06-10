@@ -6,7 +6,8 @@ import kotlinx.coroutines.withContext
 
 class CalculateFizzBuzz(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
-    private val toggle: Toggle? = null
+    private val toggle: Toggle? = null,
+    private val repository: FizzBuzzRepository? = null,
 ) {
     suspend fun execute(int: Int) = withContext(dispatcher) {
         when {
