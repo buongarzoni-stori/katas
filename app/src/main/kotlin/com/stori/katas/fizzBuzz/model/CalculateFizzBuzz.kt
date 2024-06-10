@@ -10,11 +10,15 @@ class CalculateFizzBuzz(
     private val repository: FizzBuzzRepository? = null,
 ) {
     suspend fun execute(int: Int) = withContext(dispatcher) {
-        when {
-            int % 15 == 0 -> "FizzBuzz"
-            int % 3 == 0 -> "Fizz"
-            int % 5 == 0 -> "Buzz"
-            else -> int.toString()
+        if (toggle?.isFeatureFlagOn("fizzbuzz_service_call_enabled") == true) {
+            repository?.calculate(int) ?: int.toString()
+        } else {
+            when {
+                int % 15 == 0 -> "FizzBuzz"
+                int % 3 == 0 -> "Fizz"
+                int % 5 == 0 -> "Buzz"
+                else -> int.toString()
+            }
         }
     }
 }
