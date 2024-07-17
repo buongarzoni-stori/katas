@@ -5,8 +5,14 @@ package com.stori.katas.location
  */
 class LocationFake: ILocation {
 
-    override fun getCountryByZipcode(zipcode: String): String {
-
+    override fun getStateByZipcode(zipcode: String): String {
+        return when (zipcode) {
+            "11111" -> "CDMX"
+            "22222" -> "JALISCO"
+            "33333" -> "SINALOA"
+            "44444" -> "YUCATAN"
+            else -> "ERROR"
+        }
     }
 }
 

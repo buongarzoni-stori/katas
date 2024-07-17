@@ -5,7 +5,7 @@ package com.stori.katas.location
  */
 interface ILocation {
 
-    fun getCountryByZipcode(zipcode: String): String
+    fun getStateByZipcode(zipcode: String): String
 
 }
 
