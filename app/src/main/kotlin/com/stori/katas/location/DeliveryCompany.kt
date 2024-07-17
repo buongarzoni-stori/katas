@@ -4,6 +4,6 @@ class DeliveryCompany(
     private val location: ILocation
 ) {
     fun execute(zipCode: String ): String {
-        return "ERROR"
+        return "INVALID LENGTH"
     }
 }

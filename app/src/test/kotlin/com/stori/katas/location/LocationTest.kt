@@ -29,5 +29,13 @@ class LocationTest {
         assertEquals("INVALID LENGTH", result) // Assert
     }
 
+    @Test
+    fun `delivery company with zipcode from CDMX return DHL`() {
+        val zipCode = "11111" // Arrange
+
+        val result = SUT.execute(zipCode)// Act
+
+        assertEquals("DHL", result) // Assert
+    }
 
 }
