@@ -17,15 +17,15 @@ class LocationTest {
     @Before
     fun setup() {
         locationMock = LocationFake()
-        SUT = DeliveryCompany(locationMock)
+        SUT = DeliveryCompany()
     }
 
     @Test
     fun `delivery company with zipcode length different to 5 returns error`() {
-        // Arrange
+        val zipCode = "" // Arrange
 
-        // Act
+        val result = SUT.execute(zipCode)// Act
 
-        // Assert
+        assertEquals("ERROR", result)// Assert
     }
 }
