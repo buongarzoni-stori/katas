@@ -8,6 +8,11 @@ class DeliveryCompany (
         if (zipCode.length != ZIPCODE_LENGTH)
             return "INVALID LENGTH"
 
-        return "DHL"
+        val state = location.getStateByZipcode(zipCode)
+        return if (state == "CDMX") {
+            "DHL"
+        } else {
+            "RED PACK"
+        }
     }
 }
