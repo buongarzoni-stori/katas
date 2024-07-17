@@ -38,4 +38,13 @@ class LocationTest {
         assertEquals("DHL", result) // Assert
     }
 
+    @Test
+    fun `delivery company with zipcode from JALISCO return RED PACK`() {
+        val zipCode = "22222" // Arrange
+
+        val result = SUT.execute(zipCode)// Act
+
+        assertEquals("RED PACK", result) // Assert
+    }
+
 }
