@@ -47,4 +47,21 @@ class LocationTest {
         assertEquals("RED PACK", result) // Assert
     }
 
+    @Test
+    fun `delivery company with zipcode from SINALOA return FEDEX`() {
+        val zipCode = "33333" // Arrange
+
+        val result = SUT.execute(zipCode)// Act
+
+        assertEquals("FEDEX", result) // Assert
+    }
+
+    @Test
+    fun `delivery company with zipcode from YUCATAN return no coverage error`() {
+        val zipCode = "44444" // Arrange
+
+        val result = SUT.execute(zipCode)// Act
+
+        assertEquals("NO COVERAGE", result) // Assert
+    }
 }

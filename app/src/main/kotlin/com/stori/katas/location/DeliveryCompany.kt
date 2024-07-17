@@ -10,9 +10,10 @@ class DeliveryCompany(
 
         val state = location.getStateByZipcode(zipCode)
 
-        return if (state == "CDMX")
-            "DHL"
-        else ""
-
+        return when (state) {
+            "CDMX" -> "DHL"
+            "SINALOA" -> "FEDEX"
+            else -> "RED PACK"
+        }
     }
 }
