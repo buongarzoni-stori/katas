@@ -1,9 +1,13 @@
 package com.stori.katas.location
 
+private const val ZIPCODE_LENGTH = 5
 class DeliveryCompany (
     private val location: ILocation
 ) {
     fun execute(zipCode: String ): String {
-        return "INVALID LENGTH"
+        if (zipCode.length != ZIPCODE_LENGTH)
+            return "INVALID LENGTH"
+
+        return "DHL"
     }
 }

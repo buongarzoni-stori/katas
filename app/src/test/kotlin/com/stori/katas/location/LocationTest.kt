@@ -22,15 +22,28 @@ class LocationTest {
 
     @Test
     fun `delivery company with zipcode length different to 5 returns error`() {
-        val zipCode: String = "" // Arrange
+        val zipCode = "" // Arrange
+
         val result = SUT.execute(zipCode) // Act
+
         assertEquals("INVALID LENGTH", result) // Assert
     }
 
     @Test
-    fun `delivery company with zipcode length equal to 5 does not return a error`() {
-        val zipCode: String = "11111" // Arrange
-        val result = SUT.execute(zipCode) // Act
-        assertNotEquals("INVALID LENGTH", result) // Assert
+    fun `delivery company with zipcode from CDMX returns DHL`() {
+        val cdmxZipCode = "11111" // Arrange
+
+        val result = SUT.execute(cdmxZipCode) // Act
+
+        assertEquals("DHL", result) // Assert
+    }
+
+    @Test
+    fun `delivery company with zipcode from JALISCO returns RED PACK`() {
+        val jaliscoZipCode = "22222" // Arrange
+
+        val result = SUT.execute(jaliscoZipCode) // Act
+
+        assertEquals("RED PACK", result) // Assert
     }
 }
