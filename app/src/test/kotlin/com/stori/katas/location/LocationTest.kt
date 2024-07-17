@@ -17,7 +17,7 @@ class LocationTest {
     @Before
     fun setup() {
         locationMock = LocationFake()
-        SUT = DeliveryCompany()
+        SUT = DeliveryCompany(locationMock)
     }
 
     @Test
@@ -26,6 +26,8 @@ class LocationTest {
 
         val result = SUT.execute(zipCode)// Act
 
-        assertEquals("ERROR", result)// Assert
+        assertEquals("INVALID LENGTH", result) // Assert
     }
+
+
 }

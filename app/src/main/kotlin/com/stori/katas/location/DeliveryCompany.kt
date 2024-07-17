@@ -1,7 +1,9 @@
 package com.stori.katas.location
 
-class DeliveryCompany () {
+class DeliveryCompany(
+    private val location: ILocation
+) {
     fun execute(zipCode: String ): String {
-        return ""
+        return "ERROR"
     }
 }
