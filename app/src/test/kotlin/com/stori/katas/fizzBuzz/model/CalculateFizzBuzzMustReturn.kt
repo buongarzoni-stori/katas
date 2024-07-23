@@ -19,5 +19,14 @@ class CalculateFizzBuzzMustReturn {
         "Fizz" isEqualTo result
     }
 
+    @Test
+    fun `Buzz if the number is divisible by 5`() = runTest {
+        val result = CalculateFizzBuzz().execute(5)
+
+        "Buzz" isEqualTo result
+    }
+
+
+
     private infix fun Any.isEqualTo(other: Any) = assertEquals(this, other)
 }
