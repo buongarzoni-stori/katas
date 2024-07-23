@@ -13,4 +13,11 @@ class CalculateFizzBuzzMustReturn {
     }
 
     private infix fun Any.isEqualTo(other: Any) = assertEquals(this, other)
+
+    @Test
+    fun `Fizz if the number is divisible by 3`() = runTest {
+        val result = CalculateFizzBuzz().execute(3)
+
+        "Fizz" isEqualTo result
+    }
 }
