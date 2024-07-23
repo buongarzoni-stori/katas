@@ -9,12 +9,10 @@ class CalculateFizzBuzz(
 ) {
     suspend fun execute(int: Int) = withContext(dispatcher) {
 
-        if (int.mod(3).equals(0)) {
-            "Fizz"
-        } else if (int.mod(5) == 0) {
-            "Buzz"
-        } else {
-            int.toString()
+        when{
+            int.mod(3) == 0 -> "Fizz"
+            int.mod(5) == 0 -> "Buzz"
+            else -> int.toString()
         }
     }
 }

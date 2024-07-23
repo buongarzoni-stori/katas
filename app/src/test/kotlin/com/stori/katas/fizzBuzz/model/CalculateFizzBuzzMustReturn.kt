@@ -27,4 +27,12 @@ class CalculateFizzBuzzMustReturn {
 
         "Buzz" isEqualTo result
     }
+
+    @Test
+    fun `FizzBuzz if the number is divisible by 3 or 5 `() = runTest {
+        val result = CalculateFizzBuzz().execute(5)
+
+        "FizzBuzz" isEqualTo result
+    }
+    
 }
