@@ -3,7 +3,7 @@ package com.stori.katas.fizzBuzz.infrastructure
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class FizzBuzzService {
+class FakeFizzBuzzService {
     private val results = listOf(
         "Fizz",
         "Buzz",

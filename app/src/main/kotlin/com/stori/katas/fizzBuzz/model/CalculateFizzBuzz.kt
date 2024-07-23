@@ -10,7 +10,9 @@ class CalculateFizzBuzz(
     suspend fun execute(int: Int) = withContext(dispatcher) {
         if (int % 3 == 0)
             "Fizz"
+        else if (int % 5 == 0)
+            "Buzz"
         else
-        int.toString()
+            int.toString()
     }
 }
