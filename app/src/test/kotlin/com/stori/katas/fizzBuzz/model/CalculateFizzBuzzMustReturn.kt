@@ -30,7 +30,7 @@ class CalculateFizzBuzzMustReturn {
 
     @Test
     fun `FizzBuzz if the number is divisible by 3 or 5 `() = runTest {
-        val result = CalculateFizzBuzz().execute(5)
+        val result = CalculateFizzBuzz().execute(15)
 
         "FizzBuzz" isEqualTo result
     }
