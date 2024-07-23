@@ -8,6 +8,7 @@ class CalculateFizzBuzz(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) {
     suspend fun execute(int: Int) = withContext(dispatcher) {
-        int.toString()
+
+        if (int.mod(3).equals(0)) "Fizz" else int.toString()
     }
 }
